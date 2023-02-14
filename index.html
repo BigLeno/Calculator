@@ -11,7 +11,7 @@
 </head>
     <body>
         <div class="calculator">
-            <input type="text" class="display" readonly>
+            <input type="text" id="display" class="display" readonly>
             <button onclick="addToDisplay('7')">7</button>
             <button onclick="addToDisplay('8')">8</button>
             <button onclick="addToDisplay('9')">9</button>
@@ -30,22 +30,7 @@
             <button onclick="addToDisplay('/')">/</button>
             <button id="clear" onclick="clearAll()">Clear</button>
         </div>
-        <!-- <script type="text/javascript" src="script.js"></script> -->
-        <script>
-            let display = document.querySelector(".display");
 
-            function addToDisplay(value) {
-                display.value += value;
-            }
-
-            function calculate() {
-                display.value = eval(display.value);
-            }
-
-            function clearAll() {
-                display.value = "";
-            }
-
-        </script>
+        <script type="text/javascript" src="script.js"></script>
     </body>
 </html>
