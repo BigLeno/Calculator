@@ -13,6 +13,14 @@ function clearAll() {
     display.value = "";
 }
 
+function armazenarMemoria(valor) {
+  memoria = valor;
+}
+
+function recuperarMemoria() {
+  return memoria;
+}
+
 // adicione um evento para detectar quando uma tecla é pressionada
 document.addEventListener("keydown", function(event) {
   var display = document.getElementById("display");
@@ -21,6 +29,7 @@ document.addEventListener("keydown", function(event) {
   if (key == "Enter") {
     calculate();
   } else if (/^\d$/.test(key)) {
+    armazenarMemoria(display.value);
     addToDisplay(key);
   } else if (/^[\+\-\*\/]$/.test(key)) {
     addToDisplay(key);
@@ -33,7 +42,6 @@ document.addEventListener("keydown", function(event) {
   } else if (key == "M") {
     // armazena o valor atual do display na memória
     memory = parseFloat(display.value);
-    alertItem.textcontent = "Memória armazenada"
   } else if (key == "R") {
     // recupera o valor da memória e exibe no display
     display.value = memory;
