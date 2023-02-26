@@ -1,5 +1,8 @@
+
+// Criando o Display
 let display = document.querySelector(".display");
-let alertItem = document.querySelector(".alert");
+
+// Principais funções utilizadas
 
 function addToDisplay(value) {
     display.value += value;
@@ -13,25 +16,19 @@ function clearAll() {
     display.value = "";
 }
 
-function armazenarMemoria(valor) {
-  memoria = valor;
-}
+// Adicionando um evento quando uma tecla é pressionada
 
-function recuperarMemoria() {
-  return memoria;
-}
-
-// adicione um evento para detectar quando uma tecla é pressionada
 document.addEventListener("keydown", function(event) {
   var display = document.getElementById("display");
-  var memory;
   var key = event.key;
   if (key == "Enter") {
+    // Efetua o cálculo que está no display
     calculate();
   } else if (/^\d$/.test(key)) {
-    armazenarMemoria(display.value);
+    // Adiciona o número ao display
     addToDisplay(key);
   } else if (/^[\+\-\*\/]$/.test(key)) {
+    // Adiciona o operador ao display
     addToDisplay(key);
   } else if (key == "Backspace" || key == "Delete") {
     // remove o último caractere do display
@@ -39,12 +36,6 @@ document.addEventListener("keydown", function(event) {
   } else if (key == "Escape") {
     // limpa todo o display
     clearAll();
-  } else if (key == "M") {
-    // armazena o valor atual do display na memória
-    memory = parseFloat(display.value);
-  } else if (key == "R") {
-    // recupera o valor da memória e exibe no display
-    display.value = memory;
   }
 });
 
