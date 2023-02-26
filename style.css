@@ -31,7 +31,7 @@ button {
 }
 
 #clear {
-    grid-column: 4;
+    grid-column: 1/5;
 
 }
 
